@@ -1,17 +1,4 @@
-/* @font-face {
-    font-family: "San Francisco";
-    font-weight: 400;
-    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
-  }
-
-body{
-    background-color: black;
-    background: url("https://applescoop.org/image/wallpapers/ipad/ipados-18-default-stock-18-09-2024-1726660137.jpg");
-    background-size: cover;
-    color: white;
-    font-family: 'San Francisco';
-} */
-
+/* Reset and basic styling */
 * {
     margin: 0;
     padding: 0;
@@ -21,6 +8,8 @@ body{
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    background: url("https://www.ytechb.com/wp-content/uploads/2021/09/iPad-2021-Wallpaper-2-YTECHB.webp");
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,84 +19,108 @@ body {
     border-radius: 20px;
 }
 
-/* iPad Layout */
+/* iPad Layout with Grid (responsive to viewport size) */
 .ipad-layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Widget */
-
-/* Apps Section */
-.apps {
-    background-color: green;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    gap: 120px;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: flex-start;
-    justify-content: flex-start;
-    padding: 8% 10%;
-    /* margin: 20%; */
-    /* margin-top: -30%; */
-    /* margin-left: 60%; */
-}
-
-.app {
-    background-color: #eef2f7;
-    width: 100px;
-    height: 100px;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #555;
-    font-size: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+    grid-template-rows: repeat(4, 1fr); /* 4 equal rows */
+    gap: 1.8rem;
+    width: 80vw;   /* Responsive width (80% of viewport width) */
+    height: 80vh;  /* Responsive height (70% of viewport height) */
+    aspect-ratio: 1.25;  /* Aspect ratio of the iPad layout */
+    /* padding: 0% 10%; */
+    top: 5vh;
+    justify-content: start;
+    align-items: start;
+    justify-items: center;
+    }
+    
+    /* Styling for widget containers (equal size based on available space) */
+    .widget-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;   /* Occupy full width within grid item */
+        height: 100%;  /* Occupy full height within grid item */
+        aspect-ratio: 1;    /* Full height of app container */
+    /* border-radius: 15px; */
+    /* background-color: #ffffff; */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: transform 0.2s;
 }
 
-.app:hover {
-    transform: scale(1.1);
+/* Hover effect for widget container */
+.widget-container:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
+/* Styling for the widget inside the container */
 .widget {
     background-color: #0b75f7;
-    width: 540px;
-    height: 320px;
-    border-radius: 15px;
-    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+    width: 100%;
+    height: 100%;
+    border-radius: 2rem;
+}
+
+/* Grid Areas for widgets */
+.small {
+    grid-column: span 1;
+    /* Weather widget spans 2 columns */
+    grid-row: span 1;
+    /* Weather widget spans 1 row */
+}
+
+.large {
+    grid-column: span 2;
+    /* Slideshow widget spans 3 columns */
+    grid-row: span 2;
+    /* Slideshow widget spans 2 rows */
+}
+
+/* Apps */
+.app-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    width: 100%;  /* Full width of the grid item */
+    height: 100%; /* Full height of the grid item */
+    aspect-ratio: 1;    /* Full height of app container */
+    border-radius: 20px;
     text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.app-icon {
+    width: 50%;        /* Full width of app container */
+    height: 50%;
+    aspect-ratio: 1;
+    /* transform: scale(0.5); */
+    border-radius: 25%; /* Squircle shape */
+    background-color: #f0f0f5;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    font-size: 2rem;
+    color: #555;
+    margin-bottom: 5px;
+    transition: transform 0.2s;
+}
+
+.app-icon:hover {
+    transform: scale(1.1); /* Hover zoom effect */
+}
+
+.app-title {
+    font-size: 0.8rem;
     color: #333;
-    font-size: 1.2rem;
-}
-
-.small{
-    height: 320px;
-    width: 320px;
-    gap: 0px;
-}
-
-.medium{
-    height: 320px;
-    width: 540px;
-}
-
-.large{
-    height: 540px;
-    width: 540px;
+    margin-top: 5px;
+    color: white;
 }
 
 /* Dock */
@@ -116,31 +129,37 @@ body {
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.9);
-    width: 80%;
-    height: 80px;
-    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.2); /* Light semi-transparent background for the glass effect */
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    width: auto; /* Auto width based on the items inside */
+    padding: 1rem 1rem; /* Some padding for spacing between icons */
+    height: 13vh; /* Fixed height for the dock */
+    border-radius: 30px; /* Rounded rectangle style (not too round) */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the dock */
+    transition: all 0.3s ease;
 }
 
+/* Dock App Icons */
 .dock-app {
     background-color: #eef2f7;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    width: 100%;        /* Full width of app container */
+    height: 100%;
+    aspect-ratio: 1;
+    /* transform: scale(0.5); */
+    border-radius: 30%; /* Squircle shape */
     display: flex;
     justify-content: center;
     align-items: center;
     color: #555;
     font-size: 0.8rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
 }
 
 .dock-app:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); /* Hover zoom effect */
 }

@@ -3,36 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://meyerweb.com/eric/tools/css/reset/reset200802.css"
-    />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mailtoharshit/San-Francisco-Font-/sanfrancisco.css"> -->
     <link rel="stylesheet" href="styles.css" />
     <title>iPad Layout</title>
   </head>
   <body>
     <div class="ipad-layout">
-      <!-- Widget -->
+      <!-- Widgets with respective grid areas -->
 
-      <!-- Apps Section -->
-      <div class="apps">
-        <div class="app widget small">weather</div>
-        <div class="app widget large">slideshow</div>
-        <div class="app">App 1</div>
-        <div class="app">App 2</div>
-        <div class="app">App 3</div>
-        <div class="app">App 4</div>
-        <div class="app">Widget</div>
-        <div class="app">App 1</div>
-        <div class="app">App 2</div>
-        <div class="app">App 3</div>
+      <div class="widget-container small">
+        <div class="widget">Weather</div>
+    </div>
+    <div class="widget-container large">
+      <div class="widget">Slideshow</div>
       </div>
-      <div class="dock">
-        <div class="dock-app">Dock App 1</div>
-        <div class="dock-app">Dock App 2</div>
-        <div class="dock-app">Dock App 3</div>
+      
+      
+      <!-- Apps with respective grid areas -->
+      <div class="app-container app">
+        <div class="app-icon">Icon 1</div>
+        <div class="app-title">App 1</div>
+        </div>
+        <div class="app-container app">
+          <div class="app-icon">Icon 2</div>
+          <div class="app-title">App 2</div>
+          </div>
+          <div class="app-container app">
+            <div class="app-icon">Icon 1</div>
+            <div class="app-title">App 1</div>
+            </div>
+              <div class="widget-container weather">
+                <div class="widget">Calendar</div>
+            </div>
+      <div class="app-container app">
+        <div class="app-icon">Icon 2</div>
+        <div class="app-title">App 2</div>
       </div>
+      <div class="app-container app">
+        <div class="app-icon">Icon 1</div>
+        <div class="app-title">App 1</div>
+      </div>
+      <div class="app-container app">
+        <div class="app-icon">Icon 2</div>
+        <div class="app-title">App 2</div>
+      </div>
+      <div class="app-container app">
+        <div class="app-icon">Icon 1</div>
+        <div class="app-title">App 1</div>
+      </div>
+      <div class="app-container app">
+        <div class="app-icon">Icon 2</div>
+        <div class="app-title">App 2</div>
+      </div>
+    </div>
+
+    <!-- Dock -->
+    <div class="dock">
+      <div class="dock-app">Dock App 1</div>
+      <div class="dock-app">Dock App 2</div>
+      <div class="dock-app">Dock App 3</div>
     </div>
   </body>
 </html>
