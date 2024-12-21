@@ -1,4 +1,10 @@
 /* Reset and basic styling */
+@font-face {
+    font-family: "San Francisco";
+    font-weight: 400;
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+  }
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +12,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'San Francisco', sans-serif;
     background-color: #f4f4f4;
     background: url("https://www.ytechb.com/wp-content/uploads/2021/09/iPad-2021-Wallpaper-2-YTECHB.webp");
     background-size: cover;
@@ -23,41 +29,53 @@ body {
 .ipad-layout {
     position: absolute;
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
-    grid-template-rows: repeat(4, 1fr); /* 4 equal rows */
+    grid-template-columns: repeat(6, 1fr);
+    /* 6 equal columns */
+    grid-template-rows: repeat(4, 1fr);
+    /* 4 equal rows */
     gap: 1.8rem;
-    width: 80vw;   /* Responsive width (80% of viewport width) */
-    height: 80vh;  /* Responsive height (70% of viewport height) */
-    aspect-ratio: 1.25;  /* Aspect ratio of the iPad layout */
+    width: 80vw;
+    /* Responsive width (80% of viewport width) */
+    height: 80vh;
+    /* Responsive height (70% of viewport height) */
+    aspect-ratio: 1.25;
+    /* Aspect ratio of the iPad layout */
     /* padding: 0% 10%; */
     top: 5vh;
     justify-content: start;
     align-items: start;
     justify-items: center;
-    }
-    
-    /* Styling for widget containers (equal size based on available space) */
-    .widget-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;   /* Occupy full width within grid item */
-        height: 100%;  /* Occupy full height within grid item */
-        aspect-ratio: 1;    /* Full height of app container */
+    user-select: none;
+}
+
+/* Styling for widget containers (equal size based on available space) */
+.widget-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Occupy full width within grid item */
+    height: 100%;
+    /* Occupy full height within grid item */
+    aspect-ratio: 1;
+    /* Full height of app container */
     /* border-radius: 15px; */
-    /* background-color: #ffffff; */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    border-radius: 1.5rem;
     transition: transform 0.2s;
 }
 
 /* Hover effect for widget container */
 .widget-container:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.1);
+    /* Slight zoom on hover */
 }
 
 /* Styling for the widget inside the container */
 .widget {
-    background-color: #0b75f7;
+    /* background-color: #0b75f7; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +83,7 @@ body {
     color: white;
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    /* border-radius: 3rem; */
 }
 
 /* Grid Areas for widgets */
@@ -89,9 +107,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;  /* Full width of the grid item */
-    height: 100%; /* Full height of the grid item */
-    aspect-ratio: 1;    /* Full height of app container */
+    width: 100%;
+    /* Full width of the grid item */
+    height: 100%;
+    /* Full height of the grid item */
+    aspect-ratio: 1;
+    /* Full height of app container */
     border-radius: 20px;
     text-align: center;
     padding: 10px;
@@ -99,13 +120,18 @@ body {
 }
 
 .app-icon {
-    width: 50%;        /* Full width of app container */
+    width: 50%;
+    /* Full width of app container */
     height: 50%;
     aspect-ratio: 1;
     /* transform: scale(0.5); */
-    border-radius: 25%; /* Squircle shape */
+    border-radius: 25%;
+    /* Squircle shape */
     background-color: #f0f0f5;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-size: 100% !important;
+    background-position: center !important;
+    /* Subtle shadow */
     font-size: 2rem;
     color: #555;
     margin-bottom: 5px;
@@ -113,7 +139,8 @@ body {
 }
 
 .app-icon:hover {
-    transform: scale(1.1); /* Hover zoom effect */
+    transform: scale(1.1);
+    /* Hover zoom effect */
 }
 
 .app-title {
@@ -123,34 +150,88 @@ body {
     color: white;
 }
 
+/* Calendar Widget */
+.calendar-widget {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+align-items: flex-start;
+    width: 100%;
+    /* Full width of the widget container */
+    height: 100%;
+    /* Full height of the widget container */
+    /* background-color: #ffffff; */
+    /* White background */
+    /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    padding: 1.2rem;
+    transition: transform 0.2s ease;
+    text-align: center;
+    gap: 0px;
+}
+
+.calendar-widget:hover {
+    transform: scale(1.05);
+    /* Slight zoom effect on hover */
+}
+
+.calendar-day {
+    font-size: 0.8rem;
+    /* Day size */
+    font-weight: normal;
+    color: #f34344;
+    /* Dark text color */
+    text-transform: uppercase;
+    /* Uppercase day */
+}
+
+.calendar-date {
+    font-size: 3rem;
+    /* Date size */
+    /* Bold date number */
+    color: #000000;
+    /* Darker color for the date number */
+    line-height: 2.5rem;
+}
+
 /* Dock */
 .dock {
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.2); /* Light semi-transparent background for the glass effect */
-    backdrop-filter: blur(10px); /* Glass blur effect */
-    width: auto; /* Auto width based on the items inside */
-    padding: 1rem 1rem; /* Some padding for spacing between icons */
-    height: 13vh; /* Fixed height for the dock */
-    border-radius: 30px; /* Rounded rectangle style (not too round) */
+    background: rgba(255, 255, 255, 0.2);
+    /* Light semi-transparent background for the glass effect */
+    backdrop-filter: blur(10px);
+    /* Glass blur effect */
+    width: auto;
+    /* Auto width based on the items inside */
+    padding: 1rem 1rem;
+    /* Some padding for spacing between icons */
+    height: 13vh;
+    /* Fixed height for the dock */
+    border-radius: 30px;
+    /* Rounded rectangle style (not too round) */
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the dock */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for the dock */
     transition: all 0.3s ease;
 }
 
 /* Dock App Icons */
 .dock-app {
     background-color: #eef2f7;
-    width: 100%;        /* Full width of app container */
+    width: 100%;
+    /* Full width of app container */
     height: 100%;
     aspect-ratio: 1;
     /* transform: scale(0.5); */
-    border-radius: 30%; /* Squircle shape */
+    border-radius: 30%;
+    /* Squircle shape */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -161,5 +242,106 @@ body {
 }
 
 .dock-app:hover {
-    transform: scale(1.2); /* Hover zoom effect */
+    transform: scale(1.2);
+    /* Hover zoom effect */
+}
+
+
+
+/* ------ app window ------ */
+
+/* Styling for the app window */
+/* .app-window {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 0px; /* No rounded corners for full-screen look */
+    /* padding: 20px;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center; */
+    /* z-index: 999;  
+}
+
+.window-content {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+    background-color: #d32f2f;
+} */
+
+/* Dock styling (keep it fixed at the bottom) */
+.dock {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto; /* Adjust width based on contents */
+    height: 80px; /* Fixed height for the dock */
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 150;
+}
+
+.app-window {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    z-index: 999; /* Ensure the app window is on top */
+    overflow: hidden;
+}
+
+.window-content {
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 1000; /* Ensure the close button is above the app window */
+    padding: 5px 10px;
+}
+
+.close-btn:hover {
+    color: #f00;
+}
+
+.app-icon[data-app-name="Photos"] {
+    background: url('https://cdn.iconscout.com/icon/free/png-512/free-apple-photos-icon-download-in-svg-png-gif-file-formats--logo-photo-apps-pack-user-interface-icons-493155.png?f=webp&w=512');
+}
+
+.app-icon[data-app-name="Notes"] {
+    background: url('https://cdn.iconscout.com/icon/free/png-512/free-apple-notes-icon-download-in-svg-png-gif-file-formats--logo-note-apps-pack-user-interface-icons-493153.png?f=webp&w=512');
 }
