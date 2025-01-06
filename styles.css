@@ -34,11 +34,14 @@ body {
     grid-template-rows: repeat(4, 1fr);
     /* 4 equal rows */
     gap: 1.8rem;
-    width: 80vw;
+    /* width: 80vw; */
+    /* width: 100vw; */
     /* Responsive width (80% of viewport width) */
+    /* height: 100%; */
     height: 80vh;
+    /* width: 80vw; */
     /* Responsive height (70% of viewport height) */
-    aspect-ratio: 1.25;
+    aspect-ratio: 6/4;
     /* Aspect ratio of the iPad layout */
     /* padding: 0% 10%; */
     top: 5vh;
@@ -46,6 +49,7 @@ body {
     align-items: start;
     justify-items: center;
     user-select: none;
+    /* overflow: hidden; */
 }
 
 /* Styling for widget containers (equal size based on available space) */
@@ -67,6 +71,11 @@ body {
     transition: transform 0.2s;
 }
 
+.widget-container,.app-container,.widget,
+.app-container{
+    overflow: hidden;
+}
+
 /* Hover effect for widget container */
 .widget-container:hover {
     transform: scale(1.1);
@@ -76,6 +85,7 @@ body {
 /* Styling for the widget inside the container */
 .widget {
     /* background-color: #0b75f7; */
+    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -120,9 +130,9 @@ body {
 }
 
 .app-icon {
-    width: 50%;
+    width: 60%;
     /* Full width of app container */
-    height: 50%;
+    /* height: 60%; */
     aspect-ratio: 1;
     /* transform: scale(0.5); */
     border-radius: 25%;
@@ -209,7 +219,7 @@ align-items: flex-start;
     /* Auto width based on the items inside */
     padding: 1rem 1rem;
     /* Some padding for spacing between icons */
-    height: 13vh;
+    height: 12vh;
     /* Fixed height for the dock */
     border-radius: 30px;
     /* Rounded rectangle style (not too round) */
